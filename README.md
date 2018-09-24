@@ -2,6 +2,8 @@
 
 Initial attempt at python bindings for liblxi. 
 
+NOT tested yet, likely buggy or doesn't work at all - use at your own risk!
+
 ## liblxi is a submodule of this git repo
 
 after checkout of python-liblxi you need:
