@@ -1,3 +1,12 @@
+// python-wrapper for liblxi
+// liblxi: https://github.com/lxi-tools/liblxi
+// python-liblxi: https://github.com/lxi-tools/python-liblxi
+//
+// python-liblxi is available for use under the 3-clause (or "modified") BSD
+// license, see COPYING
+//
+// Anders E.E. Wallin, 2018
+
 #include <boost/python.hpp>
 
 #include "lxi.h"
