@@ -46,9 +46,9 @@ endif(RPCGEN_FOUND)
 # command: rpcgen -M vxi11core.rpcl
 # mv vxi11core.h include
 add_custom_command(
-  OUTPUT liblxi/src/vxi11core_clnt.c
-  OUTPUT liblxi/src/vxi11core_xdr.c
-  OUTPUT liblxi/src/vxi11core.h
+  OUTPUT ${CMAKE_CURRENT_SOURCE_DIR}/liblxi/src/vxi11core_clnt.c
+  OUTPUT ${CMAKE_CURRENT_SOURCE_DIR}/liblxi/src/vxi11core_xdr.c
+  OUTPUT ${CMAKE_CURRENT_SOURCE_DIR}/liblxi/src/vxi11core.h
   COMMAND ${RPCGEN_EXECUTABLE} -M ${CMAKE_CURRENT_SOURCE_DIR}/liblxi/src/vxi11core.rpcl
 )
 

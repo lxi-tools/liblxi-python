@@ -28,6 +28,6 @@ $ sudo make install
 ## python test
 
 ```
->>> import liblxi
->>> liblxi.init()
+$ python test.py 
+Siglent Technologies,SDG2042X,SDG2XCAC2R0212,2.01.01.23R7
 ```
