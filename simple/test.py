@@ -1,3 +1,16 @@
+#####################################
+#     python-liblxi test script     #
+#####################################
+#
+# Make sure that liblxi is installed:
+#
+#  $ sudo apt install liblxi1
+#
+# Run script using Python v3.x:
+#
+#  $ python3 test.py
+#
+
 import lxi
 
 max_msg_length = 5000
