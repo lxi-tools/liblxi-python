@@ -27,7 +27,7 @@ def receive(device: int, length: int, timeout: int):
     lib.lxi_receive.restype = c_int
     message_p = create_string_buffer(length)
     status = lib.lxi_receive(c_int(device), message_p, c_int(length), c_int(timeout))
-    message = str(message_p.value)
+    message = str(message_p.value,"ascii")
     return status, message
 
 def disconnect(device: int):
