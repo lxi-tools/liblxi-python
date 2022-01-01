@@ -35,7 +35,7 @@
 from ctypes import *
 
 # Load the library
-lib = cdll.LoadLibrary('/usr/lib/x86_64-linux-gnu/liblxi.so')
+lib = cdll.LoadLibrary('/usr/lib/x86_64-linux-gnu/liblxi.so.1')
   
 # Define functions
 def init():
@@ -70,3 +70,9 @@ def disconnect(device: int):
     status = lib.lxi_disconnect(device)
     return status
 
+class _protocol_:
+    def __init__(self):
+        self.VXI11 = 0
+        self.RAW = 1
+
+protocol = _protocol_()
