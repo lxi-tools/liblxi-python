@@ -2,7 +2,10 @@
 
 Simple python bindings for liblxi.
 
-Note: Does not include discovery feature (yet).
+## Features
+
+The python bindings implements all of the liblxi API except the discover
+functions.
 
 ## Requirements
 
