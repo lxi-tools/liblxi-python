@@ -1,33 +1,26 @@
 # python-liblxi
 
-Initial attempt at python bindings for liblxi. 
+Simple python bindings for liblxi.
 
-NOT tested yet, likely buggy or doesn't work at all - use at your own risk!
+Note: Does not include discovery feature (yet).
 
-## liblxi is a submodule of this git repo
+## Requirements
 
-after checkout of python-liblxi you need:
-
-```
-$ git submodule init
-$ git submodule update
-```
-
-## cmake out-of-source build
-
-Note: the config.h is built by autogen/configure - not currently produced by cmake.
+Make sure you have python3 and liblxi installed:
 
 ```
-$ mkdir bld
-$ cd bld
-$ cmake ..
-$ make
-$ sudo make install
+sudo apt install liblxi1 python3
 ```
 
-## python test
+## Run the example code
 
 ```
-$ python test.py 
+$ python3 test.py
 Siglent Technologies,SDG2042X,SDG2XCAC2R0212,2.01.01.23R7
+```
+
+If it fails to find the liblxi library you can try preload it like so:
+
+```
+LD_PRELOAD=/usr/lib/liblxi.so python3 test.py
 ```
