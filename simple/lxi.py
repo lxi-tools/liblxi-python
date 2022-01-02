@@ -33,9 +33,28 @@
 #
 
 from ctypes import *
+from os import path,environ
+
+liblxi_path = ["/usr/lib/x86_64-linux-gnu/liblxi.so.1.0.0",
+               "/usr/lib/x86_64-linux-gnu/liblxi.so.1",
+               "/usr/lib/liblxi.so.1.0.0",
+               "/usr/lib/liblxi.so.1",
+               environ.get('LD_PRELOAD', 'none'),
+               ]
+
+# Search for liblxi library file in the usual places
+for x in liblxi_path:
+    if path.isfile(x):
+        liblxi = x
+
+try:
+    liblxi
+except:
+    print("Could not find liblxi library file - please fix library search list or use LD_PRELOAD")
+    exit()
 
 # Load the library
-lib = cdll.LoadLibrary('/usr/lib/x86_64-linux-gnu/liblxi.so.1')
+lib = cdll.LoadLibrary(liblxi)
   
 # Define functions
 def init():
