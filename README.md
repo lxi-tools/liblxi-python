@@ -1,24 +1,28 @@
 # python-liblxi
 
-Simple python bindings for liblxi.
+Python bindings for liblxi.
 
 ## Features
 
 The python bindings implements all of the liblxi API except the discover
 functions.
 
-## Requirements Linux
+## Requirements
 
 Make sure you have python3 and liblxi installed.
 
-<br />
+## Installation
+
+### Linux
 
 Install in Linux Debian based (Ubuntu, etc.):
 ```
 sudo apt install liblxi1 python3
 ```
 
-<br />
+For other Linux distributions, consult your package manager tool.
+
+### FreeBSD
 
 Install in FreeBSD:
 ```
