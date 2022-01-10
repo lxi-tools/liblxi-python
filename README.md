@@ -31,14 +31,17 @@ pkg install liblxi python3
 
 ## Run the example code
 
-First, edit test.py to replace the hardcoded IP address with the IP of your instrument, then run:
+Run the example test script with the IP of your instrument as argument:
 ```
-$ python3 test.py
-Siglent Technologies,SDG2042X,SDG2XCAC2R0212,2.01.01.23R7
+$ python3 test.py 192.168.0.157
+Sent 5 bytes
+Sent command: *IDN?
+Received 49 bytes
+Received message: Rohde&Schwarz,RTB2004,1333.1005k04/113192,02.400
 ```
 
 If it fails to find the liblxi library you can try preload it like so:
 
 ```
-LD_PRELOAD=/usr/lib/liblxi.so python3 test.py
+LD_PRELOAD=/usr/lib/liblxi.so python3 test.py 192.168.0.157
 ```

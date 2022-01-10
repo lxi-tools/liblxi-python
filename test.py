@@ -1,37 +1,33 @@
-#####################################
-#     python-liblxi test script     #
-#####################################
-#
-# Make sure that liblxi is installed:
-#
-#  $ sudo apt install liblxi1
-#
-# Run script using Python v3.x:
-#
-#  $ python3 test.py
-#
+#!/usr/bin/env python3
+
+# python-liblxi test script
 
 import lxi
+import sys
 
 max_msg_length = 5000
 timeout = 3000
+
+if len(sys.argv) != 2:
+    print("Usage: %s <ip>" % sys.argv[0])
+    exit()
 
 # Initialize library
 lxi.init()
 
 # Connect to device
-device = lxi.connect("192.168.0.107", 0, "inst0", timeout, lxi.protocol.VXI11)
+device = lxi.connect(sys.argv[1], 0, "inst0", timeout, lxi.protocol.VXI11)
 
 # Send command
 command = "*IDN?"
 status = lxi.send(device, command, len(command), timeout)
-print("Sent command: " + str(command))
 print("Sent " + str(status) + " bytes")
+print("Sent command: " + str(command))
 
 # Receive command response
 status, message = lxi.receive(device, max_msg_length, timeout)
-print("Received message: " + message)
 print("Received " + str(status) + " bytes")
+print("Received message: " + message)
 
 # Disconnect
 lxi.disconnect(device)
