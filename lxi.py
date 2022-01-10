@@ -39,7 +39,6 @@ liblxi_paths = ["/usr/lib/x86_64-linux-gnu/liblxi.so.1.0.0",
                 "/usr/lib/x86_64-linux-gnu/liblxi.so.1",
                 "/usr/lib/liblxi.so.1.0.0",
                 "/usr/lib/liblxi.so.1",
-                "/usr/local/liblxi/liblxi.so.1.0.0",
                 "/usr/local/lib/liblxi.so.1",
                 environ.get('LD_PRELOAD', 'none'),
                 ]
