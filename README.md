@@ -13,9 +13,13 @@ Make sure you have python3 and liblxi installed.
 
 ## Installation
 
+To use the liblxi python bindings script put it next to your script or add the
+location of lxi.py to your PYTHONPATH variable. Also install the required
+dependencies listed below.
+
 ### Linux
 
-Install in Linux Debian based (Ubuntu, etc.):
+Install on Linux Debian based (Ubuntu, etc.):
 ```
 sudo apt install liblxi1 python3
 ```
@@ -24,7 +28,7 @@ For other Linux distributions, consult your package manager tool.
 
 ### FreeBSD
 
-Install in FreeBSD:
+Install on FreeBSD:
 ```
 pkg install liblxi python3
 ```
