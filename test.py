@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# python-liblxi test script
+# liblxi-python test script
 
 import lxi
 import sys
