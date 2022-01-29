@@ -1,4 +1,4 @@
-# python-liblxi
+# liblxi-python
 
 Python bindings for liblxi.
 
