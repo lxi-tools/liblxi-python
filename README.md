@@ -15,7 +15,7 @@ Make sure you have python3 and liblxi installed.
 
 To use the liblxi python bindings script put it next to your script or add the
 location of lxi.py to your PYTHONPATH variable. Also install the required
-dependencies listed below.
+dependencies as described below.
 
 ### Linux
 
