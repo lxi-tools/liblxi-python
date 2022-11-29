@@ -26,6 +26,7 @@ def service(address, id, service, port):
     port = str(port)
     print("Found " + id + " on address " + address)
     print(" " + service + " service on port " + port)
+    return
 
 # Initialize library
 lxi.init()
