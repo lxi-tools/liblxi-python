@@ -36,7 +36,7 @@ If it fails to find the liblxi library you can try preload it with the specific
 path to the library. For example:
 
 ```
-LD_PRELOAD=$HOME/opt/lib/liblxi.so python3 send_receive.py 192.168.0.157
+$ LD_PRELOAD=$HOME/opt/lib/liblxi.so PYTHONPATH=. python3 ./examples/send_receive.py 192.168.0.157
 ```
 
 ### Send and receive example
@@ -54,7 +54,7 @@ Received message: Rohde&Schwarz,RTB2004,1333.1005k04/113192,02.400
 
 Search for instruments:
 ```
-PYTHONPATH=. python3 ./examples/discover.py
+$ PYTHONPATH=. python3 ./examples/discover.py
 Broadcasting on lo using address 127.0.0.1
 Broadcasting on enxe4b97a86fdad using address 192.168.0.255
    Found Rohde&Schwarz,NGM202,3638.4472k03/101403,03.068 00A8F863604 on address 192.168.0.107
