@@ -29,7 +29,7 @@
 #
 
 #
-# Python bindings for liblxi (work in progress)
+# Python bindings for liblxi
 #
 
 from ctypes import *
@@ -56,10 +56,39 @@ except:
 
 # Load the library
 lib = cdll.LoadLibrary(liblxi)
-  
+
 # Define functions
 def init():
     lib.lxi_init()
+
+# Define types
+class LXI_INFO(Structure):
+    _fields_ = [("broadcast", CFUNCTYPE(None, c_char_p, c_char_p )),
+                ("device", CFUNCTYPE(None, c_char_p, c_char_p)),
+                ("service", CFUNCTYPE(None, c_char_p, c_char_p, c_char_p, c_int))]
+
+class lxi_info_class:
+    def broadcast(self, address, interface):
+        return
+
+    def device(self, address, id):
+        return
+
+    def service(self, address, id, service, port):
+        return
+
+def discover(info: lxi_info_class, timeout: int, type: int):
+    lib.lxi_discover.argtypes = c_void_p, c_int, c_int
+    lib.lxi_discover.restype = c_int
+    BROADCAST_FUNC = CFUNCTYPE(None, c_char_p, c_char_p)
+    broadcast_func = BROADCAST_FUNC(info.broadcast)
+    DEVICE_FUNC = CFUNCTYPE(None, c_char_p, c_char_p)
+    device_func = DEVICE_FUNC(info.device)
+    SERVICE_FUNC = CFUNCTYPE(None, c_char_p, c_char_p, c_char_p, c_int)
+    service_func = SERVICE_FUNC(info.service)
+    c_info_p = pointer(LXI_INFO(broadcast_func, device_func, service_func))
+    status = lib.lxi_discover(c_info_p, c_int(timeout), c_int(type))
+    return status
 
 def connect(address, port: int, name, timeout: int, protocol: int):
     lib.lxi_connect.argtypes = c_char_p, c_int, c_char_p, c_int, c_int
@@ -96,3 +125,10 @@ class _protocol_:
         self.RAW = 1
 
 protocol = _protocol_()
+
+class _discover_protocol_:
+    def __init__(self):
+        self.DISCOVER_VXI11 = 0
+        self.DISCOVER_MDNS = 1
+
+discover_protocol = _discover_protocol_()
