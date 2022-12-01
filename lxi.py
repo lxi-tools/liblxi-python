@@ -33,25 +33,12 @@
 #
 
 from ctypes import *
-from os import path,environ
+from ctypes.util import find_library
 
-liblxi_paths = ["/usr/lib/x86_64-linux-gnu/liblxi.so.1.0.0",
-                "/usr/lib/x86_64-linux-gnu/liblxi.so.1",
-                "/usr/lib/liblxi.so.1.0.0",
-                "/usr/lib/liblxi.so.1",
-                "/usr/local/lib/liblxi.so.1",
-                environ.get('LD_PRELOAD', 'none'),
-                ]
-
-# Search for liblxi library file in the usual places
-for x in liblxi_paths:
-    if path.isfile(x):
-        liblxi = x
-
-try:
-    liblxi
-except:
-    print("Could not find liblxi library file - please fix bindings library search paths or use LD_PRELOAD")
+# Find library
+liblxi = find_library('lxi')
+if not liblxi:
+    print("Could not find liblxi library")
     exit()
 
 # Load the library
